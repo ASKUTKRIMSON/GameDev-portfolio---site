@@ -1,0 +1,220 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('ASKUT-KRIMSON.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay h1 {
+    color: white;
+    font-size: 4em;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+/* шторка сверху */
+.top-menu {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    z-index: 1000;
+    font-family: "Undertale-Battle-Font", sans-serif;
+}
+
+.top-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-menu ul li {
+    margin: 0 15px;
+}
+
+.top-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.top-menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Добавляем отступ для секций, чтобы они не скрывались под фиксированным меню */
+section {
+    padding: 80px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+
+/*Стилизация формы*/
+form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"], input[type="email"] {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*Практика 5*/
+@media screen and (max-width: 768px) {
+    
+
+    .list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .list p {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.mobile-image {
+    display: none;
+  }
+    @font-face {
+    font-family: "Undertale-Battle-Font";
+    
+    src: url("Undertale-Battle-Font.ttf") format("truetype");
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+.list {
+    display: flex;
+    justify-content: space-between; 
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+
+    /* Анимация */
+
+    animation: projects_animation 1s ease-out forwards;
+}
+
+.list p {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 20px;
+    background-color: #f9f9f9;
+
+    opacity: 0; /* Изначально невидимые */
+    transform: translateY(50px); /* Смещение вниз */
+    animation: projects_animation 1s ease-out forwards;
+}
+
+.list p:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-bottom: 4px solid #FF4081;
+}
+
+.list p:nth-child(1) {
+    background-color: #FFA726; /* Цвет фона для Проект 1 */
+    color: #fff;
+}
+
+.list p:nth-child(2) {
+    background-color: #E91E63; /* Цвет фона для Проект 2 */
+    color: #fff;
+}
+
+.list p:nth-child(3) {
+    background-color: #7E57C2; /* Цвет фона для Проект 3 */
+    color: #fff;
+}
+
+.list p:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.list p:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.list p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* практика 6 */
+@keyframes projects_animation {
+    from {
+        transform: translateY(50px); /* Сдвиг снизу */
+        opacity: 0; /* Полная прозрачность */
+    }
+    to {
+        transform: translateY(0); /* Начальная позиция */
+        opacity: 1; /* Полная видимость */
+    }
+}
+html {
+    scroll-behavior: smooth;
+}

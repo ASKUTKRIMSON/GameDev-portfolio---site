@@ -136,9 +136,7 @@ button[type="submit"] {
 .mobile-image {
     display: none;
   }
-
-
-@font-face {
+    @font-face {
     font-family: "Undertale-Battle-Font";
     
     src: url("Undertale-Battle-Font.ttf") format("truetype");
@@ -154,34 +152,69 @@ button[type="submit"] {
     gap: 10px;
 
     /* Анимация */
-    animation: projects_animation;
-    animation-duration: 5s;
-    animation-iteration-count: 0;
-    animation-direction: normal;
-    animation-timing-function: linear;
-    animation-delay: 0ms;
-    animation-play-state:running
-    animation-fill-mode: none;
+
+    animation: projects_animation 1s ease-out forwards;
 }
+
 .list p {
     flex: 1;
     text-align: center;
     border: 1px solid #ccc;
-    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 20px;
     background-color: #f9f9f9;
-}   
 
-/* практика 6 */
-@keyframes projects_animation{
-    from{
-        
-    }
-
-    to{
-        
-    }
+    opacity: 0; /* Изначально невидимые */
+    transform: translateY(50px); /* Смещение вниз */
+    animation: projects_animation 1s ease-out forwards;
 }
 
+.list p:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-bottom: 4px solid #FF4081;
+}
+
+.list p:nth-child(1) {
+    background-color: #FFA726; /* Цвет фона для Проект 1 */
+    color: #fff;
+}
+
+.list p:nth-child(2) {
+    background-color: #E91E63; /* Цвет фона для Проект 2 */
+    color: #fff;
+}
+
+.list p:nth-child(3) {
+    background-color: #7E57C2; /* Цвет фона для Проект 3 */
+    color: #fff;
+}
+
+.list p:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.list p:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.list p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* практика 6 */
+@keyframes projects_animation {
+    from {
+        transform: translateY(50px); /* Сдвиг снизу */
+        opacity: 0; /* Полная прозрачность */
+    }
+    to {
+        transform: translateY(0); /* Начальная позиция */
+        opacity: 1; /* Полная видимость */
+    }
+}
 html {
     scroll-behavior: smooth;
 }
