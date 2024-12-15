@@ -186,7 +186,7 @@ button[type="submit"] {
     position: absolute;
     width: 150%;
     height: 150%;
-    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    background: linear-gradient(45deg, #fd0003, #f9d423);
     filter: blur(20px);
     transition: all 0.6s ease;
     z-index: -1;
