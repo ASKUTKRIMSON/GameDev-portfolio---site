@@ -247,3 +247,45 @@ button[type="submit"] {
     }
 }
 
+/*Практика 8*/
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "Unity Unity Unreal-Engine-5"
+    "Blender Rider Unreal-Engine-5"
+    "FL-Studio FL-Studio Unreal-Engine-5";
+}
+
+.Unity { grid-area: Unity; }
+.FL-Studio { grid-area: FL-Studio; }
+.Rider { grid-area: Rider; }
+.Blender {justify-self: stretch;grid-area: Blender;}
+.Unreal-Engine-5 { grid-area: Unreal-Engine-5; }
+
+
+.container div {
+    position: relative;
+    overflow: hidden; /* Обрезает лишние части изображения */
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    background-color: #1e1e1e; /* Цвет фона */
+    border-radius: 10px; /* Скругление углов */
+}
+
+/* Стили для изображений */
+.container img {
+    max-width: 80%; /* Уменьшаем масштаб до 80% от блока */
+    max-height: 80%; /* Сохраняем пропорции */
+    object-fit: contain; /* Вписываем изображение, сохраняя пропорции */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Анимация при наведении */
+.container div:hover img {
+    transform: scale(1.05); /* Небольшое увеличение */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Тень */
+}
