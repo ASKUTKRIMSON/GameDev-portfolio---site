@@ -44,7 +44,7 @@
         <div class="list">
             <p><a href="4.html">Проект 4: Описание...</a></p>
 
-            <p><a href="5.html">Проект 5: Описание...</a></p>
+            <p><a href="5.html">Проект 5: Описание (проверка функции которая должна обрезать текст, но не делает этого по с...</a></p>
 
         </div>
 
@@ -93,6 +93,19 @@
     </form>
 
     <script src="script.js"></script>
+
+    /* практика 10 */
+    <script>
+
+        function truncate(str, maxlength) {
+            return str.length > maxlength ? str.slice(0, maxlength) + "…" : str;
+        }
+
+
+        document.querySelectorAll("#projects a").forEach(function(anchor) {
+            anchor.textContent = truncate(anchor.textContent, 30);
+        });
+    </script>
 
 </body>
 </html>
