@@ -106,5 +106,21 @@
         });
     </script>
 
+    /* практика 11*/
+    <script>
+        // Массив с названиями технологий
+        const techStack = ["Unity", "FL Studio", "Rider", "Blender", "Unreal Engine"];
+
+        // Получаем элемент <ul>, куда добавим элементы массива
+        const techList = document.getElementById("tech-list");
+
+        // Перебираем массив и добавляем каждый элемент в список
+        techStack.forEach(tech => {
+            const listItem = document.createElement("li");
+            listItem.textContent = tech; // Добавляем текст из массива
+            techList.appendChild(listItem); // Добавляем элемент в список
+        });
+    </script>
+
 </body>
 </html>
