@@ -125,32 +125,40 @@
     <!-- Практика 12 -->
     
 
-    <!-- Уведомление -->
-    <div id="notification" style="display: none; margin-top: 20px; color: green; font-weight: bold;">
-        Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.
-    </div>
-
-    <!-- Уведомления -->
-     
-    <div id="notification" style="margin-top: 20px; color: green; font-weight: bold;">
-        У вас 0 новых уведомлений
-    </div>
-    <button id="pause-notifications" style="margin-top: 10px;">Пауза уведомлений</button>
-
+    <!-- Контейнер для уведомлений -->
+    <div id="notifications-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
 
     <script>
-        // Получаем форму и элемент уведомления
+        // Функция для создания уведомления
+        function showNotification({ message, type = 'info' }) {
+            const container = document.getElementById('notifications-container');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+
+            // Стили уведомления
+            notification.style.position = 'relative';
+            notification.style.padding = '10px 20px';
+            notification.style.marginBottom = '10px';
+            notification.style.borderRadius = '5px';
+            notification.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+            notification.style.color = '#fff';
+            notification.style.backgroundColor = type === 'success' ? '#4caf50' :
+                                                 type === 'error' ? '#f44336' :
+                                                 type === 'warning' ? '#ff9800' : '#2196f3';
+
+            container.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 1500);
+        }
+
+        // Обработчик формы
         const form = document.getElementById("feedback-form");
-        const notification = document.getElementById("notification");
-
-        // Добавляем обработчик события отправки формы
         form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Предотвращаем стандартную отправку формы
-
-            // Показываем уведомление
-            notification.style.display = "block";
-
-            // Можно добавить очистку полей формы
+            event.preventDefault();
+            showNotification({ message: "Форма успешно отправлена!", type: "success" });
             form.reset();
         });
     </script>
