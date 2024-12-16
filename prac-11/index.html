@@ -79,7 +79,7 @@
         <p>Email: <a href="mailto:askutkrimson@gmail.com">askutkrimson@gmail.com</a></p>
     </section>
 
-    <form action="" method="get">
+    <form id="feedback-form" action="" method="get">
         <p>
             <label for="name">Ваше имя</label>
             <input type="text" name="name" id="name" required>
@@ -93,7 +93,7 @@
 
     <script src="script.js"></script>
 
-    /* практика 10 */
+    <!-- Практика 10 -->
     <script>
 
         function truncate(str, maxlength) {
@@ -106,7 +106,7 @@
         });
     </script>
 
-    /* практика 11*/
+    <!-- Практика 11 -->
     <script>
         // Массив с названиями технологий
         const techStack = ["Unity", "FL Studio", "Rider", "Blender", "Unreal Engine"];
@@ -119,6 +119,31 @@
             const listItem = document.createElement("li");
             listItem.textContent = tech; // Добавляем текст из массива
             techList.appendChild(listItem); // Добавляем элемент в список
+        });
+    </script>
+
+    <!-- Практика 12 -->
+    
+
+    <!-- Уведомление -->
+    <div id="notification" style="display: none; margin-top: 20px; color: green; font-weight: bold;">
+        Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.
+    </div>
+
+    <script>
+        // Получаем форму и элемент уведомления
+        const form = document.getElementById("feedback-form");
+        const notification = document.getElementById("notification");
+
+        // Добавляем обработчик события отправки формы
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Предотвращаем стандартную отправку формы
+
+            // Показываем уведомление
+            notification.style.display = "block";
+
+            // Можно добавить очистку полей формы
+            form.reset();
         });
     </script>
 
