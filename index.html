@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио ASKUT KRIMSON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="top-menu">
+        <ul>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#tech-stack">Стек</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+
+
+    <header class="hero">
+        <div class="overlay">
+            <h1 id="hero-title"></h1>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Обо мне</h2>
+        <p>Геймдизайнер с опытом в 3d моделировании, программист, музыкант</p>
+    </section>
+
+    <section id="projects">
+
+        <h2>Мои проекты</h2>
+
+        <div id="contents" class="list">
+            <p><a href="1.html">Проект 1: Описание...</a></p>
+
+            <p><a href="2.html">Проект 2: Описание...</a></p>
+
+            <p><a href="3.html">Проект 3: Описание...</a></p>
+        </div>
+
+        <div id="contents" class="list">
+            <p><a href="4.html">Проект 4: Описание...</a></p>
+
+            <p><a href="5.html">Проект 5: Описание... (проверка работы функции)</a></p>
+
+        </div>
+
+    </section>
+
+    <section id="tech-stack">
+
+        <h2>Мой стек</h2>
+
+        <div class="container">
+            <div class="Unity">
+                <img src="unity.png" alt="Unity Logo">
+            </div>
+            <div class="FL-Studio">
+                <img src="flstudio.png" alt="FL Studio Logo">
+            </div>
+            <div class="Rider">
+                <img src="rider.png" alt="Rider Logo">
+            </div>
+            <div class="Blender">
+                <img src="blender.png" alt="Blender Logo">
+            </div>
+            <div class="Unreal-Engine-5">
+                <img src="unreal.png" alt="Unreal Engine Logo">
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <h2>Контакты</h2>
+        <p>Телефон: +7-921-361-33-41</p>
+        <p>Email: <a href="mailto:askutkrimson@gmail.com">askutkrimson@gmail.com</a></p>
+    </section>
+
+    <form id="feedback-form" action="" method="get">
+        <p>
+            <label for="name">Ваше имя</label>
+            <input type="text" name="name" id="name" required>
+        </p>
+        <p>
+            <label for="email">Ваша почта</label>
+            <input type="email" name="email" id="email" required>
+        </p>
+        <button type="submit">Отправить</button>
+    </form>
+
+    <script src="script.js"></script>
+
+    <!-- /* практика 10 */ -->
+    <script>
+
+        function truncate(str, maxlength) {
+            return str.length > maxlength ? str.slice(0, maxlength) + "…" : str;
+        }
+
+
+        document.querySelectorAll("#projects a").forEach(function(anchor) {
+            anchor.textContent = truncate(anchor.textContent, 30);
+        });
+    </script>
+
+    <!-- /* практика 11*/ -->
+    <script>
+        // Массив с названиями технологий
+        const techStack = ["Unity", "FL Studio", "Rider", "Blender", "Unreal Engine"];
+
+        // Получаем элемент <ul>, куда добавим элементы массива
+        const techList = document.getElementById("tech-list");
+
+        // Перебираем массив и добавляем каждый элемент в список
+        techStack.forEach(tech => {
+            const listItem = document.createElement("li");
+            listItem.textContent = tech; // Добавляем текст из массива
+            techList.appendChild(listItem); // Добавляем элемент в список
+        });
+    </script>
+
+    <!-- Практика 12 -->
+    
+
+    <!-- Контейнер для уведомлений -->
+    <div id="notifications-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
+
+    <script>
+        // Функция для создания уведомления
+        function showNotification({ message, type = 'info' }) {
+            const container = document.getElementById('notifications-container');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+
+            // Стили уведомления
+            notification.style.position = 'relative';
+            notification.style.padding = '10px 20px';
+            notification.style.marginBottom = '10px';
+            notification.style.borderRadius = '5px';
+            notification.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+            notification.style.color = '#fff';
+            notification.style.backgroundColor = type === 'success' ? '#4caf50' :
+                                                 type === 'error' ? '#f44336' :
+                                                 type === 'warning' ? '#ff9800' : '#2196f3';
+
+            container.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 1500);
+        }
+
+        // Обработчик формы
+        const form = document.getElementById("feedback-form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            showNotification({ message: "Спасибо за отправку формы!", type: "success" });
+            form.reset();
+        });
+    </script>
+
+
+</body>
+</html>

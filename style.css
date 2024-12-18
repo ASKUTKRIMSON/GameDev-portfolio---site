@@ -1,0 +1,291 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('ASKUT-KRIMSON.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay h1 {
+    color: white;
+    font-size: 4em;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+/* шторка сверху */
+.top-menu {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    z-index: 1000;
+    font-family: "Undertale-Battle-Font", sans-serif;
+}
+
+.top-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-menu ul li {
+    margin: 0 15px;
+}
+
+.top-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.top-menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Добавляем отступ для секций, чтобы они не скрывались под фиксированным меню */
+section {
+    padding: 80px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+
+/*Стилизация формы*/
+form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"], input[type="email"] {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*Практика 5*/
+@media screen and (max-width: 768px) {
+
+
+    .list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .list p {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.mobile-image {
+    display: none;
+  }
+    @font-face {
+    font-family: "Undertale-Battle-Font";
+    
+    src: url("Undertale-Battle-Font.ttf") format("truetype");
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+
+
+/*Практика 7*/
+/* Общие стили для секции */
+#projects {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    background: #111; /* Тёмный фон */
+    color: #fff;
+}
+
+/* Стили для плашек */
+.list p {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.list p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Градиентные элементы (псевдоэлементы) */
+.list p::before,
+.list p::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    filter: blur(20px);
+    transition: all 0.6s ease;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.list p::before {
+    top: -80%;
+    left: -80%;
+    animation: moveGradient1 5s infinite alternate;
+}
+
+.list p::after {
+    bottom: -80%;
+    right: -80%;
+    animation: moveGradient2 5s infinite alternate;
+}
+
+/* Анимации градиентов до наведения */
+@keyframes moveGradient1 {
+    0% {
+        transform: translate(-20%, -20%);
+    }
+    100% {
+        transform: translate(20%, 20%);
+    }
+}
+
+@keyframes moveGradient2 {
+    0% {
+        transform: translate(20%, 20%);
+    }
+    100% {
+        transform: translate(-20%, -20%);
+    }
+}
+
+/* Эффект при наведении */
+.list p:hover {
+    transform: translateY(-10px);
+}
+
+.list p:hover::before,
+.list p:hover::after {
+    background: linear-gradient(135deg, #4e54ff, #00ff99); /* Изменение направления градиента */
+    animation: moveHoverGradient 2s infinite alternate;
+}
+
+/* Дополнительная анимация при наведении */
+@keyframes moveHoverGradient {
+    0% {
+        transform: scale(1.1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.3) rotate(20deg);
+        opacity: 0.6;
+    }
+}
+
+/*Практика 8*/
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "Unity Unity Unreal-Engine-5"
+    "Blender Rider Unreal-Engine-5"
+    "FL-Studio FL-Studio Unreal-Engine-5";
+}
+
+.Unity { grid-area: Unity; }
+.FL-Studio { grid-area: FL-Studio; }
+.Rider { grid-area: Rider; }
+.Blender {justify-self: stretch;grid-area: Blender;}
+.Unreal-Engine-5 { grid-area: Unreal-Engine-5; }
+
+
+.container div {
+    position: relative;
+    overflow: hidden; /* Обрезает лишние части изображения */
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    background-color: #1e1e1e; /* Цвет фона */
+    border-radius: 10px; /* Скругление углов */
+}
+
+/* Стили для изображений */
+.container img {
+    max-width: 80%; /* Уменьшаем масштаб до 80% от блока */
+    max-height: 80%; /* Сохраняем пропорции */
+    object-fit: contain; /* Вписываем изображение, сохраняя пропорции */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Анимация при наведении */
+.container div:hover img {
+    transform: scale(1.05); /* Небольшое увеличение */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Тень */
+}
