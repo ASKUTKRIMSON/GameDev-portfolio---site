@@ -169,16 +169,18 @@ button[type="submit"] {
 
 #projects .list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
+    padding: 0 20px; /* Add padding to prevent sticking to the edges */
+    max-width: 1000px; /* Add a max-width to center the content */
 }
 
-/* Стили для плашек */
 .list p {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex: 1 1 calc(33.333% - 40px); /* Add flexibility and spacing */
     margin: 20px;
     padding: 15px 25px;
     background: rgba(255, 255, 255, 0.1); /* Glassmorphism */
@@ -189,6 +191,10 @@ button[type="submit"] {
     text-decoration: none;
     transition: transform 0.3s ease;
     z-index: 1;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: center; /* Center text horizontally */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
 }
 
 .list p a {
