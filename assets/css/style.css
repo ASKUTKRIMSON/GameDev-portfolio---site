@@ -17,7 +17,7 @@ body, html {
 .hero {
     position: relative;
     height: 100vh;
-    background-image: url('ASKUT-KRIMSON.png');
+    background-image: url('../images/ASKUT-KRIMSON.png');
     background-size: cover;
     background-position: center;
 }
@@ -149,7 +149,7 @@ button[type="submit"] {
     @font-face {
     font-family: "Undertale-Battle-Font";
     
-    src: url("Undertale-Battle-Font.ttf") format("truetype");
+    src: url("../../Undertale-Battle-Font.ttf") format("truetype");
     font-style: normal; 
     font-weight: normal; 
 }
